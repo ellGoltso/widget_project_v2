@@ -1,4 +1,44 @@
+import pandas as pd
 import pytest
+
+
+@pytest.fixture
+def fixture_transaction_excel():
+    data = {
+        "id": 650703.0,
+        "state": "EXECUTED",
+        "date": "2023-09-05T11:30:32Z",
+        "amount": 16210.0,
+        "currency_name": "Sol",
+        "currency_code": "PEN",
+        "from": "Счет 58803664561298323391",
+        "to": "Счет 39745660563456619397",
+        "description": "Перевод организации",
+    }
+    df = pd.DataFrame(data, index=[0])
+    return df
+
+
+@pytest.fixture
+def fixture_transaction_csv():
+    def generate_transaction():
+        data = [
+            {
+                "id": 650703,
+                "state": "EXECUTED",
+                "date": "2023-09-05T11:30:32Z",
+                "amount": 16210,
+                "currency_name": "Sol",
+                "currency_code": "PEN",
+                "from": "Счет 58803664561298323391",
+                "to": "Счет 39745660563456619397",
+                "description": "Перевод организации",
+            }
+        ]
+        for i in data:
+            yield i
+
+    return generate_transaction()
 
 
 @pytest.fixture
