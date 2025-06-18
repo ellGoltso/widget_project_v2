@@ -9,8 +9,6 @@ from src.widget import get_date, mask_account_card
 
 
 def select_file_type() -> Tuple[list[dict], str]:
-    """ """
-
     while True:
         file_choice: str = input(
             "Выберите необходимый пункт меню:\n"
@@ -38,8 +36,6 @@ def select_file_type() -> Tuple[list[dict], str]:
 
 
 def select_filter_status(data_list: list[dict]) -> list[dict]:
-    """ """
-
     while True:
         print("Введите статус, по которому необходимо выполнить фильтрацию.")
         state_choice = input("Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING\n")
@@ -62,8 +58,6 @@ def select_filter_status(data_list: list[dict]) -> list[dict]:
 
 
 def select_sort_by_date(data_list: list[dict]) -> list[dict]:
-    """ """
-
     while True:
         print("Отсортировать операции по дате? Да/Нет")
         date_sort: str = input()
@@ -91,8 +85,6 @@ def select_sort_by_date(data_list: list[dict]) -> list[dict]:
 
 
 def sort_by_rub_with_json(data_list: list[dict]) -> list[dict]:
-    """ """
-
     rub_generator = filter_by_currency(data_list, "RUB")
     rub_data: list[dict] = []
 
@@ -105,8 +97,6 @@ def sort_by_rub_with_json(data_list: list[dict]) -> list[dict]:
 
 
 def sort_by_rub_with_csv_excel(data_list: list[dict]) -> list[dict]:
-    """ """
-
     sorted_data_list: list[dict] = []
     for transaction in data_list:
         if transaction["currency_code"] == "RUB":
@@ -115,8 +105,6 @@ def sort_by_rub_with_csv_excel(data_list: list[dict]) -> list[dict]:
 
 
 def select_sort_by_rub(data_list: list[dict], file_type: str) -> list[dict]:
-    """ """
-
     while True:
         print("Выводить только рублевые транзакции? Да/Нет")
         sorting_by_rub: str = input()
@@ -136,8 +124,6 @@ def select_sort_by_rub(data_list: list[dict], file_type: str) -> list[dict]:
 
 
 def select_sort_by_description(data_list: list[dict]) -> list[dict]:
-    """ """
-
     while True:
         print("Отфильтровать список транзакций по определенному слову в описании? Да/Нет")
         sorting_by_description: str = input()
